@@ -1,5 +1,18 @@
-# Ignorar archivos de log generados por el keylogger
+venv/
+
+__pycache__/
+*.py[cod]
+*$py.class
+
 logs/
 *.log
 *.txt
 *.key
+
+.vscode/
+
+.DS_Store
+
+log_encrypted.txt
+patterns_detected.txt
+secret.key
