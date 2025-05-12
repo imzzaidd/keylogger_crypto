@@ -1,5 +1,20 @@
-# Ignorar archivos de log generados por el keylogger
+# Entorno virtual
+venv/
+
+# Archivos de Python compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de logs del keylogger
 logs/
 *.log
 *.txt
 *.key
+
+# Archivos de configuración del sistema/macOS
+.DS_Store
+
+# Archivos de VSCode
+.vscode/

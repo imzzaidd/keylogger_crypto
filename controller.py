@@ -3,10 +3,14 @@ import sys
 import os
 
 def start_logger():
-    subprocess.Popen([sys.executable, "keylogger.py"], creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
+    subprocess.Popen([sys.executable, "keylogger/core.py"], creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
 
 def view_logs():
     with open("logs/log.txt", "r") as f:
+        print(f.read())
+
+def view_alerts():
+    with open("logs/patterns_detected.txt", "r") as f:
         print(f.read())
 
 def encrypt_logs():
@@ -15,7 +19,8 @@ def encrypt_logs():
 def main():
     print("1. Iniciar keylogger")
     print("2. Ver registros")
-    print("3. Cifrar registros")
+    print("3. Ver alertas de patrones")
+    print("4. Cifrar registros")
     choice = input("Selecciona una opción: ")
 
     if choice == "1":
@@ -23,6 +28,8 @@ def main():
     elif choice == "2":
         view_logs()
     elif choice == "3":
+        view_alerts()
+    elif choice == "4":
         encrypt_logs()
     else:
         print("Opción no válida.")
