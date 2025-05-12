@@ -1,0 +1,26 @@
+{
+  "language": "es",
+  "mode": "full",
+  "style": "clean",
+  "rules": {
+    "max-line-length": 100,
+    "no-hardcoded-paths": true,
+    "no-dead-code": true,
+    "no-bare-except": true,
+    "no-print-statements": false
+  },
+  "include": [
+    "controller.py",
+    "commands/",
+    "keylogger/",
+    "log_encryptor.py"
+  ],
+  "exclude": [
+    "logs/",
+    "venv/",
+    "__pycache__/"
+  ],
+  "tone": "polite",
+  "persona": "arquitecto de software",
+  "review-goal": "Evaluar arquitectura, buenas prácticas, seguridad y separación de responsabilidades"
+}
