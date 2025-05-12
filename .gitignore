@@ -1,0 +1,5 @@
+# Ignorar archivos de log generados por el keylogger
+logs/
+*.log
+*.txt
+*.key
