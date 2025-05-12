@@ -1,79 +1,100 @@
-# Simulador Ético de Keylogger en Python 🧪🖥️
+================================================================================
+🛡️ Simulador Ético de Keylogger con Detección de Cripto y CLI Modular
+================================================================================
 
-Este proyecto forma parte de una práctica universitaria con fines educativos y éticos en el estudio de técnicas de análisis de malware. Simula el comportamiento básico de un troyano con módulo keylogger sin exfiltrar datos ni dañar el sistema, operando únicamente en entornos de laboratorio controlados.
+Este proyecto educativo simula de manera segura el comportamiento de un keylogger
+centrado en la detección de patrones relacionados con criptomonedas. Está diseñado
+para ejecutarse únicamente en entornos controlados con fines de análisis, defensa
+y aprendizaje sobre ciberseguridad.
 
-------------------------------------------------------------
-📁 Estructura del Proyecto
+--------------------------------------------------------------------------------
+📦 Estructura del Proyecto
+--------------------------------------------------------------------------------
 
-practica_virologia/
-├── controller.py          # CLI para controlar el simulador
-├── keylogger.py           # Captura las pulsaciones del teclado
-├── log_encryptor.py       # Cifra el archivo de logs (opcional)
-├── logs/                  # Carpeta donde se guarda el archivo log
-└── venv/                  # Entorno virtual Python
-------------------------------------------------------------
+practica_virologia_crypto/
+├── controller.py                # CLI principal (Invoker)
+├── commands/                    # Comandos desacoplados (Command Pattern)
+│   ├── __init__.py
+│   ├── base.py
+│   ├── factory.py
+│   ├── start_logger.py
+│   ├── stop_logger.py
+│   ├── view_logs.py
+│   ├── view_alerts.py
+│   ├── simulate_payment.py
+│   ├── encrypt_logs.py
+├── keylogger/                   # Core del keylogger
+│   ├── __init__.py
+│   ├── core.py
+│   ├── detector.py
+│   ├── observer.py
+├── log_encryptor.py             # Cifrado del archivo de logs
+├── logs/                        # Archivos generados (log.txt, etc.)
 
-🚀 Instrucciones de Uso
+--------------------------------------------------------------------------------
+🎯 Características
+--------------------------------------------------------------------------------
 
-1. Clona o ubica esta carpeta en tu escritorio:
+✔ Captura de pulsaciones con `pynput`
+✔ Detección de patrones tipo wallet, dirección cripto, frase semilla
+✔ Registro y alerta local en archivos separados
+✔ Simulación de pagos en cripto (enviar/recibir)
+✔ CLI modular usando patrón Command + Factory
+✔ Arquitectura extensible y segura para prácticas de laboratorio
 
-   cd ~/Desktop/practica_virologia
+--------------------------------------------------------------------------------
+🧠 Patrones de Diseño Utilizados
+--------------------------------------------------------------------------------
 
-2. Activa el entorno virtual existente:
+- Command Pattern: cada acción es un comando independiente
+- Factory Pattern: generación dinámica de comandos desde CLI
+- Observer Pattern: alertas de patrones maliciosos observadas en tiempo real
 
+--------------------------------------------------------------------------------
+🚀 Cómo ejecutar el proyecto
+--------------------------------------------------------------------------------
+
+1. Navega al proyecto:
+   cd ~/Desktop/practica_virologia_crypto
+
+2. Activa el entorno virtual:
    source venv/bin/activate
 
-   Si no existe, créalo:
-   python3 -m venv venv
-   source venv/bin/activate
-
-3. Instala las dependencias necesarias:
-
+3. Instala dependencias:
    pip install pynput cryptography
 
-4. Ejecuta el controlador del proyecto:
-
+4. Ejecuta el menú principal:
    python controller.py
 
-   Verás el siguiente menú:
+--------------------------------------------------------------------------------
+🧪 Opciones del menú
+--------------------------------------------------------------------------------
 
-   1. Iniciar keylogger
-   2. Ver registros
-   3. Cifrar registros
+1. Iniciar keylogger
+2. Detener keylogger
+3. Ver registros
+4. Ver alertas de patrones
+5. Simular pago con cripto
+6. Cifrar registros
+0. Salir
 
-------------------------------------------------------------
-🧠 Detalles Técnicos
+--------------------------------------------------------------------------------
+🔒 Ética y Seguridad
+--------------------------------------------------------------------------------
 
-- Captura teclas presionadas usando `pynput`.
-- Guarda registros locales con marca de tiempo.
-- Cifra el log (opcional) usando `cryptography.Fernet`.
-- Simula autoejecución (solo impresión, no se modifica el sistema).
-------------------------------------------------------------
+⚠ Este simulador NO debe usarse en entornos reales o no controlados.
+⚠ Todos los datos permanecen localmente. No hay exfiltración de información.
+⚠ El código tiene propósitos exclusivamente didácticos, de auditoría o defensa.
 
-🛠️ Solución a Errores Comunes
+--------------------------------------------------------------------------------
+🤖 Integración con CodeRabbit (GitHub PR Review)
+--------------------------------------------------------------------------------
 
-🔴 Error: "pynput no se ha podido resolver" (Pylance)
+- Incluye archivo `.coderabbit/config.json` personalizado
+- Revisa automáticamente arquitectura, prácticas y seguridad al crear Pull Requests
+- Recomendado para proyectos colaborativos o educativos con revisión automática
 
-Causa: VS Code no detecta correctamente el entorno virtual.
-
-Solución:
-1. Verifica que `venv` esté dentro del proyecto.
-2. En VS Code, selecciona el intérprete con:
-   Cmd+Shift+P → "Python: Select Interpreter" → selecciona `./venv/bin/python`
-3. Reinicia VS Code si persiste el problema.
-
-Opcionalmente, desactiva la advertencia en settings.json:
-
-  "python.analysis.diagnosticSeverityOverrides": {
-    "reportMissingModuleSource": "none"
-  }
-
-------------------------------------------------------------
-⚠️ Advertencia Ética
-
-Este simulador no debe utilizarse en sistemas reales fuera de entornos de laboratorio. Su propósito es estrictamente académico para aprender a detectar, analizar y defenderse de software malicioso.
-
-------------------------------------------------------------
+--------------------------------------------------------------------------------
 📜 Licencia
 
-MIT – Para fines educativos únicamente.
+MIT — Para uso académico, ético y de investigación exclusivamente.
