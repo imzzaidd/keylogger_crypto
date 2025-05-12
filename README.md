@@ -31,7 +31,7 @@ y aprendizaje sobre ciberseguridad.
 --------------------------------------------------------------------------------
 
 1. Navega al proyecto:
-   cd ~/Desktop/practica_virologia_crypto
+   cd ~
 
 2. Activa el entorno virtual:
    source venv/bin/activate
