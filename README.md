@@ -8,30 +8,6 @@ para ejecutarse únicamente en entornos controlados con fines de análisis, defe
 y aprendizaje sobre ciberseguridad.
 
 --------------------------------------------------------------------------------
-📦 Estructura del Proyecto
---------------------------------------------------------------------------------
-
-practica_virologia_crypto/
-├── controller.py                # CLI principal (Invoker)
-├── commands/                    # Comandos desacoplados (Command Pattern)
-│   ├── __init__.py
-│   ├── base.py
-│   ├── factory.py
-│   ├── start_logger.py
-│   ├── stop_logger.py
-│   ├── view_logs.py
-│   ├── view_alerts.py
-│   ├── simulate_payment.py
-│   ├── encrypt_logs.py
-├── keylogger/                   # Core del keylogger
-│   ├── __init__.py
-│   ├── core.py
-│   ├── detector.py
-│   ├── observer.py
-├── log_encryptor.py             # Cifrado del archivo de logs
-├── logs/                        # Archivos generados (log.txt, etc.)
-
---------------------------------------------------------------------------------
 🎯 Características
 --------------------------------------------------------------------------------
 
